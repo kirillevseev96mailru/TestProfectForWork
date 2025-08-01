@@ -16,8 +16,8 @@ def test_parse_args_minimal(monkeypatch):
 def test_read_logs_without_date(tmp_path):
     log = tmp_path / "l.log"
     data = [
-        {"@timestamp":"2025-01-01T00:00:00+00:00","url":"/x","response_time":0.1},
-        {"@timestamp":"2025-01-01T00:01:00+00:00","url":"/y","response_time":0.2}
+        {"@timestamp":"2025-01-01T00:00:00+00:00", "url": "/x", "response_time": 0.1},
+        {"@timestamp":"2025-01-01T00:01:00+00:00", "url": "/y", "response_time": 0.2}
     ]
     log.write_text("\n".join(json.dumps(e) for e in data),
                    encoding="utf-8")
@@ -31,8 +31,8 @@ def test_read_logs_without_date(tmp_path):
 def test_read_logs_with_date(tmp_path):
     log = tmp_path / "l2.log"
     data = [
-        {"@timestamp":"2025-01-01T00:00:00+00:00","url":"/x","response_time":0.1},
-        {"@timestamp":"2025-01-02T00:00:00+00:00","url":"/y","response_time":0.2}
+        {"@timestamp":"2025-01-01T00:00:00+00:00", "url": "/x", "response_time": 0.1},
+        {"@timestamp":"2025-01-02T00:00:00+00:00", "url": "/y", "response_time": 0.2}
     ]
     log.write_text("\n".join(json.dumps(e) for e in data),
                    encoding="utf-8")

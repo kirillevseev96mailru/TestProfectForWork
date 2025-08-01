@@ -1,7 +1,8 @@
 import sys
 import json
 import pytest
-from src.parser import parse_args, read_logs
+from log_parser import parse_args, read_logs
+
 
 def test_parse_args_minimal(monkeypatch):
     monkeypatch.setattr(sys, "argv",
@@ -10,6 +11,7 @@ def test_parse_args_minimal(monkeypatch):
     assert args.file == ["a.log"]
     assert args.report == "average"
     assert args.date is None
+
 
 def test_read_logs_without_date(tmp_path):
     log = tmp_path / "l.log"
@@ -24,6 +26,7 @@ def test_read_logs_without_date(tmp_path):
     assert len(entries) == 2
     assert entries[0]["url"] == "/x"
     assert pytest.approx(entries[1]["response_time"], rel=1e-6) == 0.2
+
 
 def test_read_logs_with_date(tmp_path):
     log = tmp_path / "l2.log"

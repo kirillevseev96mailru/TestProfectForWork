@@ -27,10 +27,6 @@ def parse_args():
 
 
 def read_logs(file_paths, date_filter=None):
-    """
-    Читает все JSON-строки из каждого файла в file_paths,
-    по необходимости фильтрует по date_filter и возвращает список dict.
-    """
     entries = []
     for path in file_paths:
         with open(path, encoding="utf-8") as f:

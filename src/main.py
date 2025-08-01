@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from tabulate import tabulate
-from parser import parse_args, read_logs
+from log_parser import parse_args, read_logs
 from reports.average import AverageReport
 
 
